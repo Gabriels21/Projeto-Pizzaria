@@ -49,12 +49,12 @@ html, body{
     min-height: 50%;
 }
 
+
 #main-container h2 {
     margin-bottom: 30px;
-
 }
 
-.row{
+.row {
     margin: 0;
 }
 
@@ -65,35 +65,30 @@ html, body{
 }
 
 #pizza-form label {
-   font-weight: bold;
-
-}
-
-.btn.btn-success {
+    font-weight: bold;
+ }
+ 
+ .btn.btn-success {
     background-color: #000;
     border-color: #000;
 }
 
-/*Alert*/
+/*Alerta*/
 
 .alert {
     border-radius: 0;
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    font-weight: bold;
     padding: 20px;
     font-size: 18px;
-    font-weight: bold;
 }
 
-.alert p{
-    margin-bottom: 0px;
-}
-
-.alert.alert-success{
+.alert.alert-success {
     border: 2px solid #155724;
 }
 
-.alert.alert-warning{
+.alert.alert-Warning {
     border: 2px solid #856404;
 }
 
