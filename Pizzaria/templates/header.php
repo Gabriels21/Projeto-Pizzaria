@@ -1,3 +1,23 @@
+<?php 
+
+include("process/conn.php");
+
+//Inicializando a variável com valor vazio
+$msg = "";
+
+//Verificando se a variável msg tem algum valor
+if(isset($_SESSION["msg"])){
+
+    $msg = $_SESSION["msg"];
+    $status = $_SESSION["status"];
+
+    //Limpando as mensagens
+    $_SESSION["msg"] = "";
+    $_SESSION["status"] = "";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,13 +40,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a href="inde.php" class="nav-link">Peça sua Pizza</a>
+                        <a href="index.php" class="nav-link">Peça sua Pizza</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
+    
+    <?php if($msg != ""): ?>
 
-    <div class="alert alert-success">
-        <p>Seu pedido foi realizado com sucesso!</p>
+    <div class="alert alert-<?= $status ?>">
+        <p><?= $msg ?></p>
     </div>
+
+    <?php endif; ?>
