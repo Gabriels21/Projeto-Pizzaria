@@ -35,10 +35,30 @@
         no front-end*/
         $sabores = $saboresQuery->fetchALL();
 
-        print_r($sabores);
+        //print_r($sabores);
 
     //Se for POST(enviando) criação do pedido
     }else if($method === "POST"){
+
+        $data = $_POST;
+
+        $borda = $data["borda"];
+        $massa = $data["massa"];
+        $sabores = $data["sabores"];
+
+        //Validação de sabores máximo
+        if(count($sabores) > 3){
+            $_SESSION["msg"] = "Escolher no máximo 3 sabores!";
+            $_SESSION["status"] = "warning";
+        }else{
+
+            echo "Validado";
+            exit;
+
+        }
+
+        //Retorna para página inicial
+        header("location: ..");
 
     }
 
