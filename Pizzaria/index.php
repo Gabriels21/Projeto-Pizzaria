@@ -1,12 +1,14 @@
     <?php
 
     include_once('templates/header.php');
+    include_once('process/pizza.php');
 
     ?>
-    
+
     <div id="main-banner">
         <h1>Faça seu Pedido</h1>
     </div>
+    
     <div id="main-container">
         <div class="container">
             <div class="row">
@@ -17,18 +19,41 @@
                             <label for="borda">Borda:</label>
                             <select name="borda" id="borda" class="form-control">
                                 <option value="">Escolha a borda de sua pizza</option>
+                                    
+                                <!--Percorrendo a variável $bordas que está armazenando a query 
+                                que retorna todas as bordas (estou atribuindo os valores retornados
+                                para uma váriavel chamada de $borda-->
+                                    <?php foreach($bordas as $borda): ?>
+
+                                        <option value="<?= $borda['id']?>"><?= $borda["tipo"]?></option>
+
+                                    <?php endforeach; ?>
+
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="massa">Massa:</label>
                             <select name="massa" id="massa" class="form-control">
                                 <option value="">Escolha a massa de sua pizza</option>
+
+                                <?php foreach($massas as $massa): ?>
+
+                                    <option value="<?= $massa['id_massa']?>"><?= $massa["tipo_massa"]?></option>
+
+                                <?php endforeach; ?>
+
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="massa">Sabores: (Máximo 3)</label>
                             <select multiple name="sabores[]" id="sabores" class="form-control">
-                                <option value="">Escolha o(s) sabor(es) de sua pizza</option>
+
+                                <?php foreach($sabores as $sabor): ?>
+
+                                    <option value="<?= $sabor['id_sabor']?>"><?= $sabor["nome_sabor"]?></option>
+
+                                <?php endforeach; ?>
+
                             </select>
                         </div>
                         <div class="form-group">
